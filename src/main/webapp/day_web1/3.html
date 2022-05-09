@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>text관련태그</title>
+<style>
+ h1,h2,h3,h4,h5,h6 
+ {
+ font-size: 20px;
+ }
+</style>
+</head>
+<body>
+<h1>h1태그</h1>
+<h2>h2태그</h2>
+<h3>h3태그</h3>
+<h4>h4태그</h4>
+<h5>h5태그</h5>
+<h6>h6태그</h6>
+<hr>
+<p>HTML 배우는 중이다... <br> p태그 단락이다1</p>
+<p>HTML 배우는 중이다... p태그 단락이다2</p>
+<p>HTML 배우는 중이다... p태그 단락이다3</p>
+<blockquote>HTML 배우는 중이다... p태그 단락이다3</blockquote>
+<hr>
+<pre>
+	protected void doGet(HttpServletRequest request,//요청
+			HttpServletResponse response) //요청반응
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		
+		out.append("<h1>Served at: ").append(request.getContextPath() + "<h1>").append("<h2>최재용<h2>");
+	}
+</pre>
+</body>
+</html>

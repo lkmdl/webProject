@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	label {width:100px; display: intline-block; background-color: lightgreen}
+	h1 {border: 1px solid green; width: 500px;}
+</style>
+</head>
+<body>
+<!--  input 요소는 inline 요소이다. (content만큼만 자리차지)
+	width 속성 변경불가
+	h1 요소는 block요소이다.(1줄을 차지한다.)
+submit는 서버로 전송하기 버튼이다.-->
+<h1>로그인하기</h1>
+<form action="loginCheck.jsp" method="get">
+<fieldset>
+<legend>get방식</legend>
+<label>아이디:</label>
+<input type="text" name="userid" value="cjy0828" size = "20" maxlength="10"><br>
+<label>비밀번호:</label>
+<input type="password" name="userpass" value="0828"><br>
+<input type="submit" value="서버로 전송">
+</fieldset>
+</form>
+<hr>
+<form action="loginCheck.jsp" method="post">
+<fieldset>
+<legend>post방식</legend>
+<label>아이디:</label>
+<input type="text" name="userid2" value="cjy0828"><br>
+<label>비밀번호:</label>
+<input type="password" name="userpass2" value="0828"><br>
+<input type="hidden" name="phone" value="01012345678"><br>
+<input type="submit" value="서버로 전송">
+</fieldset>
+</form>
+</body>
+</html>
