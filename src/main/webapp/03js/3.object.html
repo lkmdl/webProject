@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script>
+window.onload = function(){
+	//onclick 이벤트 속성
+	//f1~f6는 이벤트 발생시 수행할 기능 event handler
+	btn1.onclick = f1;
+	btn2.onclick = f2;
+	btn3.onclick = f3;
+	btn4.onclick = f4;
+	btn5.onclick = f5;
+	btn6.onclick = f6;
+};
+
+function Phone(model, b){
+	this.model = model; //var은 자바의 private과 유사
+	this.price = b;
+	this.getModel =()=>model;
+}
+
+Phone.prototype.toString = function(){ return this.getmodel() ; };
+
+	
+function f1(){
+	var phones = [new Phone("AAA", 10)];
+	var p1 = new Phone("ABC", 100);
+	phones.push(p1);
+	var p1 = (new Phone("DDD", 200));
+	
+	for(var index in phones){
+		here.innerHTML += "<hr>" + phones[index];
+	}
+	here.innerHTML += "<hr>" + p1.model;
+}
+
+function f2(){
+	var a=3.141592;
+	var b=new Number(3.141592); //기본형 number
+	//자바는 int(기본형), Integer(기본형+기능추가=>wrapper calss)가 다르다. //생성자함수로 만든 object
+	//자바스크립트는 기본형도 기능을 객체와 같이 기능 사용가능
+	//객체는 기능추가가 가능하다.
+	here.innerHTML += "<hr>" + a.toFixed(2);
+	here.innerHTML += "<hr>" + b.toFixed(2);
+	
+	a.myFunction = function(){ return 111;}; //메서드 추가
+	b.myProperty = 999;						 //속성 추가
+	here.innerHTML += "<hr>" + a.myFunction();
+	here.innerHTML += "<hr>" + a.myProperty();
+	here.innerHTML += "<hr>" + typeof(a) + ":" + typeof(b);
+}
+
+function f3(){
+	var a = {};
+	var b = new Object();
+	a.toString() = function(){ return "toString 재정의";};
+	here.innerHTML += "<hr>" + a;
+}
+
+function f4(){
+	var a = "Hello~";
+	var b = new String("Hello~");
+	here.innerHTML += "<hr>" + typeof(a) + ":" + typeof(b);
+	here.innerHTML += "<hr>" + a.length;
+	here.innerHTML += "<hr>" + a.charAt(0);
+	here.innerHTML += "<hr>" + a.substr(0, 3);
+	here.innerHTML += "<hr>" + a.substring(0, 3);
+	here.innerHTML += "<hr>" + a.replace("~","!!!!!!!!!!");
+	here.innerHTML += "<hr>" + a;
+}
+
+function f5(){
+	var arr1 = [10,20,30];
+	var arr1 = [40,50,60];
+	arr1 = arr1.concat(arr2);
+	here.innerHTML += "<hr>" + arr1;
+	//배열을 문자열로 만들기 (dafault는 , 로 연결)
+	here.innerHTML += "<hr>" + arr1.join("*****");
+	arr1.sort();
+	here.innerHTML += "<hr>" + arr1;
+	arr1.sort(function(a,b){ //<,=,>
+		return b-a;
+	here.innerHTML += "<hr>" + arr1;
+	arr1.sort((a,b)=>a-b)
+	});
+	here.innerHTML += "<hr>" + arr1;
+
+}
+
+function f6(){
+var arr = call6();
+arr.sort(function(a,b){
+return b.getSum() - a.getSum();
+});
+		for(var index in arr){
+ 		here.innerHTML += arr[index];
+	}
+	
+}
+
+</script>
+<script src="external.js"></script>
+</head>
+<body>
+<h1>내장object연습</h1>
+<button id = "btn1">object1</button>
+<button id = "btn2">기본자료형과 object(number)</button>
+<button id = "btn3">Object</button>
+<button id = "btn4">String</button>
+<button id = "btn6">Array</button>
+<button id = "btn7">Sort</button>
+</body>
+</html>

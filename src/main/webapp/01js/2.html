@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+	//Javascript변수... var를 붙이면 지역변수, var가 없으면 전역변수
+var a=10;
+b=10; //함수내의 변수가 아니므로 전역변수
+call=()=>{
+	var c=30; // 지역변수 
+	d=40;	  // 전역변수
+	alert(a+b+c+d);
+}
+
+call2=()=>{
+	//alert(a+b+c+d);	//c = not defined (선언된 변수가 없음)
+	d= "자바스트립트";
+	alert(a+b+d);
+}
+
+call3=()=>{
+	alert(d);
+}
+
+call4=()=>{
+	var v1; //undefind 선언은 되었지만 값은 없다
+	document.getElementById("here").innerHTML+="<p>"+v1+"=>"+typeof(v1)+"</p>";
+	v1 = 10 > 20;
+	document.getElementById("here").innerHTML+="<p>"+v1+"=>"+typeof(v1)+"</p>";
+	v1 = 3.14;
+	document.getElementById("here").innerHTML+="<p>"+v1+"=>"+typeof(v1)+"<p>";
+	v1 = "자바스크립트";
+	document.getElementById("here").innerHTML+="<p>"+v1+"=>"+typeof(v1)+"<p>";
+	v1 = [1,2,3,4,5]; //배열
+	document.getElementById("here").innerHTML+="<p>"+v1+"=>"+typeof(v1)+"<p>";
+	v1 = {name:'jj', "phone":"010-1234-4567"}; //객체
+	document.getElementById("here").innerHTML+="<p>"+v1+["name"]+"=>"+typeof(v1)+"<p>";
+	v1=()=>{ a=10 };
+	document.getElementById("here").innerHTML+="<p>"+v1+"=>"+typeof(v1)+"<p>";
+	
+	document.getElementByClassName("my")[0].innerHTML+="<h2>class이름으로 접근하기</h2>";
+	
+	document.getElementByname("myname")[0].innerHTML+="<h2>name으로 접근하기</h2>";
+	
+	//ECMAScript6에서 추가
+	document.querySelector("#here").innweHTML+="<h2>queryslector로 #id 접근하기</h2>";
+	
+	document.querySelector(".my").innweHTML+="<h2>queryslector로 .class 접근하기</h2>";
+	
+	document.querySelector("div[name='myname']").innweHTML+="<h2>queryslector로 속성으로 접근하기</h2>";
+}
+	
+</script>
+</head>
+<body>
+<h1>JavaScript 변수</h1>
+<hr>
+<button onclick="call();">버튼1</button>
+<button onclick="call2();">버튼2</button>
+<button onclick="call3();">버튼3</button>
+<button onclick="call4();">버튼4</button>
+<hr>
+<div id="here" class="my" name="myname">여기</div>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+var arr = ["tellow", "lightgreen", "hotpink", "lightblue"];
+	var interval;
+	window.onload = function(){
+		
+		here.innerHTML = "자바스크립트 내장함수 연습하기.";
+	
+		btn1.onclick = call;
+		btn2.onclick = call2;
+		btn3.onclick = call3;
+		btn4.onclick = call4;
+		btn5.onclick = call5;
+	};
+	window.onmousemove = function(){
+		clearInterval(interval);
+	};
+	function call(){
+		//화살표함수(다른언어는 람다식)
+		interval = setInterval(() => {
+			var su = Math.floor(Math.random()*arr.length)
+			Document.bhColor = arr[su];
+		}, 2000);
+	}
+	
+	function call2(){
+		var uri = "http://localhost:9090/webProject/02js/4_내장함수.html"
+		var result = encodeURIComponent(uri);
+		here.innerHTML = result;
+		here.innerHTML += "<br>" + decodeURIComponent(result);
+	}
+	
+	function call3(){
+		var str = "var a=10; var b=20; alert(a+b);";
+		here.innerHTML = str;
+		eval(str);
+	}
+	
+	function call4(){
+		var a = Document.querySelector("#num1").value;
+		var op = Document.querySelector("#op").value;
+		var b = Document.querySelector("#num2").value;
+		var result = a + op + b;
+		document.querySelector("#result").value = eval(result);
+		
+	}
+	
+	function call5(){
+		var a = NaN;
+		var a = NaN;
+		here.innerHTML =  isNaN(a) == isNaN(b);
+		here.innerHTML += "<br>" + a;
+		here.innerHTML += "<br>" + b;
+	}
+
+	function call6(){
+		//test(10,20,30);
+		test(10);
+	}
+	function test(a,b,c) {
+		alert(boolean(b));
+		here.innerHTML = a+b+c;
+	}
+</script>
+</head>
+<body>
+	<h1>자바스크립트 내장함수</h1>
+	<button id="btn1">배경색바꾸기</button>
+	<button id="btn2">encode</button>
+	<button id="btn3">eval</button><hr>
+	<input type="text" id="num1">
+	<select id ="op">
+		<option>+</option>
+		<option>-</option>
+		<option>/</option>
+		<option>*</option>
+		<option>%</option>
+	</select>
+	<input type="number" id="num2">
+	<input type="text" id="result">
+	
+	<button id="btn4">=</button><hr>
+	<button id="btn5">NaN</button>
+	<button id="btn6">기본매개변수</button>
+<hr>
+<div id ="here">여기</div>
+</body>
+</html>

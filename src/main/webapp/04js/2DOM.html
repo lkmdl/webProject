@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<style>
+#here {
+border:5px dotted gray;
+}
+</style>
+<script>
+window.onload = function(){
+	btn1.onclick = f1;
+	btn2.onclick = f2;
+	btn2.onclick = f3;
+	btn2.onclick = f4;
+
+};
+function f1(){
+	var element_node = document.createElement("h2"); //<h2></h2>
+	console.log(element_node);
+	var text_node = document.createTextNode("Hello~");
+	console.log(text_node);
+	element_node.appendChild(text_node);
+	console.log(element_node);//<h2>Hello~~</h2>
+	
+	var here = document.getElementById("here");
+	here.appenChile(element_node);
+	
+}
+function f2(){
+	var here = document.getElementById("here");
+	here.innerHTML += "<h2>Hello~~~</h2>";
+}
+
+function f3(){
+	var here = document.getElementById("here");
+	var imagsrc = "..img/umbrella.jpg";
+	here.innerHTML += `<img src=>'${imgsrc}'>`;	
+}
+
+function f4(){
+var obj = {};
+var src = "";
+obj.src = "../img/umbrella.jpg";
+var element_node = document.createElement("img"); //<img>
+//element_node.src=imgsrc;
+element_node.setAtttribute("src", imgsrc);
+element_node.setAtttribute("width", 300);
+element_node.setAtttribute("height", 300);
+
+}
+
+</script>
+</head>
+<body>
+<h1>DOM(document object model)</h1>
+<button id="btn1">동적노드 생성(create)</button>
+<button id="btn1">동적노드 생성(innerHTML)</button>
+
+<hr>
+<div id="here">여기</div>
+</body>
+</html>
